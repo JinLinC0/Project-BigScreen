@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <!-- <div class="header"></div> -->
-        <div class="w-full h-full flex">
-            <!-- <img class="w-[20%] h-full ml-6 mr-6" :src="prop.url" /> -->
+        <div class="w-full h-full flex justify-center items-center">
+            <img class="w-[10%] h-full ml-6 mr-2" :src="prop.url" />
             <div class="flex">
                 <div class="text-[16px] text-white">
                     {{ prop.title }}

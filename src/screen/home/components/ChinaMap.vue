@@ -1,7 +1,7 @@
 <template>
 	<div class="china-map" ref="chinaMap" @click="tooltipVisible = false"></div>
 	<div class="tooltip" v-show="tooltipVisible" :style="tooltipStyle">
-		<div class="tooltip-item" v-for="point in tooltipPoints" :key="point.name" @click="goPid(point.name)">
+		<div class="tooltip-item" v-for="point in tooltipPoints" :key="point.name" @click="goEnterprise(point.name)">
 			{{ point.name }}
 		</div>
 	</div>
@@ -26,7 +26,7 @@ const tooltipPoints = ref<{ name: string }[]>([]);
 // 终点名称和经纬度
 const geoCoordMap = [
 	// 杭州市
-	{ name: '分公司1', latlng: [120.13002083419951, 30.451371202764932], location: '杭州市' },
+	{ name: '分公司1', latlng: [120.13002083419951, 30.451371202764932], location: '杭州市', id: '1' },
 	{ name: '分公司2', latlng: [120.33088314277734, 30.330594448531546], location: '杭州市' },
 	{ name: '分公司3', latlng: [120.1721984624694, 30.310450439427846], location: '杭州市' },
 	{ name: '分公司4', latlng: [119.1734183487406, 29.752859124617327], location: '杭州市' },
@@ -36,8 +36,8 @@ const geoCoordMap = [
 	{ name: '分公司8', latlng: [119.99458784670446, 29.86492863552714], location: '杭州市' },
 	// 宁波市
 	{ name: '分公司9', latlng: [121.88140770412247, 29.472187413058656], location: '宁波市' },
-	{ name: '分公司10', latlng: [121.31437016576808, 29.440871679564626], location: '宁波市', id: 'e15ca06f-c10c-497c-a074-810912d7cb0b' },
-	{ name: '分公司11', latlng: [121.98561918451128, 29.774495738742186], location: '宁波市', id: 'a1d26f78-b322-404f-953c-e12917eaee6f' },
+	{ name: '分公司10', latlng: [121.31437016576808, 29.440871679564626], location: '宁波市' },
+	{ name: '分公司11', latlng: [121.98561918451128, 29.774495738742186], location: '宁波市' },
 	{ name: '分公司12', latlng: [121.4516418704593, 29.874383274593292], location: '宁波市' },
 	{ name: '分公司13', latlng: [121.88473352006667, 29.87181766529938], location: '宁波市' },
 	{ name: '分公司14', latlng: [121.91768703524986, 29.857528947250604], location: '宁波市' },
@@ -275,13 +275,13 @@ const initChinaMap = () => {
 };
 
 
-const goPid = (name: string) => {
+const goEnterprise = (name: string) => {
 	for (let i = 0; i < geoCoordMap.length; i++) {
 		if (name === geoCoordMap[i].name) {
 			if (geoCoordMap[i].id !== undefined) {
 				router.push({ path: '/pid', query: { id: geoCoordMap[i].id } });
 			} else {
-				ElMessage.error('当前工厂没有pid流程图')
+				ElMessage.error('当前子企业没有大屏展示图')
 			}
 		}
 	}

@@ -12,7 +12,7 @@
                 </div>
                 <div class="w-[30%] flex items-center justify-end">
                     <div class="flex items-center">
-                        <Weather :url=weather title="当前天气：" />
+                        <Weather :url=weather title="杭州当前天气：" />
                     </div>
                 </div>
             </div>
@@ -25,23 +25,13 @@
                 </div>
             </div>
             <div class="content-center">
-                <div class="w-[100%] h-[15%] flex items-center justify-center" v-if="topTitleDate.managementDevices">
+                <div class="w-[100%] h-[15%] flex items-center justify-center">
                     <div class="componentOneContainer">
                         <div class="w-[80%] h-full flex items-center justify-end">
                             <div>
                                 <span class="text-[16px]" style="color: rgba(194, 221, 240, 1);">服务企业数</span>
                                 <div class="text-[22px] text-center" style="color: rgba(127, 208, 255, 1);">
-                                    <CountUp :endVal="23" :duration="3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="componentTwoContainer">
-                        <div class="w-[80%] h-full flex items-center justify-end">
-                            <div>
-                                <span class="text-[16px]" style="color: rgba(194, 221, 240, 1);">风险告警数</span>
-                                <div class="text-[22px] text-center" style="color: rgba(127, 208, 255, 1);">
-                                    <CountUp :endVal=topTitleDate.riskAlert :duration="3" />
+                                    <CountUp :endVal="26" :duration="3" />
                                 </div>
                             </div>
                         </div>
@@ -51,7 +41,17 @@
                             <div>
                                 <span class="text-[16px]" style="color: rgba(194, 221, 240, 1);">在管设备数</span>
                                 <div class="text-[22px] text-center" style="color: rgba(127, 208, 255, 1);">
-                                    <CountUp :endVal=topTitleDate.managementDevices :duration="3" />
+                                    <CountUp :endVal="100" :duration="3" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="componentTwoContainer">
+                        <div class="w-[80%] h-full flex items-center justify-end">
+                            <div>
+                                <span class="text-[16px]" style="color: rgba(194, 221, 240, 1);">金日销售额</span>
+                                <div class="text-[22px] text-center" style="color: rgba(127, 208, 255, 1);">
+                                    <CountUp :endVal="100000" :duration="3" />
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="w-[100%] h-[25%]">
                     <ChartsTitle title="实时销售情况总览" />
-                    <BottomTable style="height: 100%;" />
+                    <BottomTable style="height: calc(100% - 60px);" />
                 </div>
             </div>
             <div class="content-aside pl-12">
@@ -82,6 +82,8 @@ import DigitalClock from '../components/DigitalClock.vue';
 import Weather from '../components/Weather.vue';
 import ChartsTitle from '../components/ChartsTitle.vue';
 import ChinaMap from './components/ChinaMap.vue';
+//@ts-ignore
+import CountUp from '../components/CountUp.vue';
 // 图表的引入
 import BottomTable from '../components/BottomTable.vue';
 import SingleLineBar from './components/charts/SingleLineBar.vue';
@@ -92,7 +94,6 @@ import HorizontalMultiItemBar from './components/charts/HorizontalMultiItemBar.v
 import PieChart from './components/charts/PieChart.vue';
 // 静态资源的引入
 import weather from '/src/assets/bigScreen/svg/weather.svg'
-import { ref } from 'vue';
 
 const leftChartList = [
     { title: '服务地区企业数量统计', componentName: SingleLineBar },
@@ -104,11 +105,6 @@ const rightChartList = [
     { title: '风险设备数量统计分布', componentName: HorizontalMultiItemBar },
     { title: '风险设备占比', componentName: PieChart },
 ]
-
-const topTitleDate = ref({
-    riskAlert: '',
-    managementDevices: ''
-})
 </script>
 
 <style lang="scss" scoped>
