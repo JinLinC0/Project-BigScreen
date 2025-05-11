@@ -11,13 +11,6 @@ import * as echarts from 'echarts';
 const barRef = ref();
 let myChart: any = null;
 
-const yData = ref<any>({
-    risk_level_1: [15, 0, 16],
-    risk_level_2: [3, 0, 5],
-    risk_level_3: [4, 0, 2],
-    risk_level_4: [1, 0, 3],
-})
-
 const initCharts = () => {
     let option = {
         // 整个echarts图标的位置

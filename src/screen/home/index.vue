@@ -62,8 +62,8 @@
                     <ChinaMap style="height: calc(100% - 30px);" />
                 </div>
                 <div class="w-[100%] h-[25%]">
-                    <ChartsTitle title="风险告警总览" />
-                    <BottomTable style="height: calc(100% - 60px);" />
+                    <ChartsTitle title="实时销售情况总览" />
+                    <BottomTable style="height: 100%;" />
                 </div>
             </div>
             <div class="content-aside pl-12">
