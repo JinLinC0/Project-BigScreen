@@ -19,5 +19,5 @@ export default defineConfig({
     alias: {  // 配置路径别名
       '@': path.resolve(__dirname, 'src')  // 用@代表src文件夹
     }
-  }
+  },
 })
