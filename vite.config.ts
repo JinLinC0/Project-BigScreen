@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 export default defineConfig({
-  base: "/Project-BigScreen/",
+  base:'./',
   build: {
     outDir: 'docs'
   },
